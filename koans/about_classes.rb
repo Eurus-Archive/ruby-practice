@@ -28,16 +28,6 @@ class AboutClasses < Neo::Koan
   def test_instance_variables_cannot_be_accessed_outside_the_class
     fido = Dog2.new
     fido.set_name("Fido")
-    begin
-      fido.name
-    rescue => exception
-      
-    ensure
-      puts "#{exception.inspect}"
-    end
-    assert_raise(NoMethodError) do
-      fido.name
-    end
 
     assert_raise(SyntaxError) do
       eval "fido.@name"
